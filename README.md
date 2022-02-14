@@ -1,4 +1,20 @@
-![image](https://user-images.githubusercontent.com/5447190/126574397-24d809dd-8e25-4a98-b2b5-691c29565253.png)
+```mermaid
+
+graph LR
+HttpStart{{"#32;HttpStart"}}:::function
+style HttpStart fill:#D9D9FF,stroke-width:2px
+HttpStart.httpTrigger>"#127760; http:[get,post]"]:::httpTrigger --> HttpStart
+TestRestApiMethod{{"#32;TestRestApiMethod"}}:::function
+style TestRestApiMethod fill:#D9D9FF,stroke-width:2px
+TestRestApiMethod.httpTrigger>"#127760; http:[get]"]:::httpTrigger --> TestRestApiMethod
+MapReduceOrchestrator[["#32;MapReduceOrchestrator"]]:::orchestrator
+style MapReduceOrchestrator fill:#D9D9FF,stroke-width:2px
+HttpStart ---> MapReduceOrchestrator
+MapReduceOrchestrator -- "[ContinueAsNew]" --> MapReduceOrchestrator
+ProcessingActivity[/"#32;ProcessingActivity"/]:::activity
+style ProcessingActivity fill:#D9D9FF,stroke-width:2px
+MapReduceOrchestrator ---> ProcessingActivity
+```
 
 # repeating-map-reduce-sample
 
